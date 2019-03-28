@@ -12,6 +12,10 @@
             <span th:text="${book.title}">Title</span> by
             <span th:text="${book.author}">Author</span>
             (ISBN: <span th:text="${book.isbn}">ISBN</span>)
+            <a th:href="'http://www.amazon.com/gp/product/'
+                 + ${book.isbn}
+                 + '/tag=' + ${amazonID}"
+               th:text="${book.title}">Title</a>
         </dt>
         <dd class="bookDescription">
  <span th:if="${book.description}"
@@ -27,6 +31,7 @@
 <hr/>
 <h3>Add a book</h3>
 <form method="POST">
+
     <label for="title">Title:</label>
     <input type="text" name="title" size="50"></input><br/>
     <label for="author">Author:</label>
